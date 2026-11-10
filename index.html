@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chayashree · Freelance Websites</title>
+<meta name="description" content="Freelance website design and care: online shops, wedding invitation sites, business sites and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--a:#0F5C5A;--ink:#1B1A17;--mute:#4A4640;--bg:#FBF8F3;--bg2:#F1EAE0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0}
+a{color:inherit}button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.top{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;padding:28px 0}
+.logo{font:600 22px Fraunces,Georgia,serif}
+.call{font-weight:600;text-decoration:none;color:var(--a)}
+.hero{padding:56px 0 72px;display:flex;flex-direction:column;gap:26px}
+.eyebrow{font-size:14px;font-weight:600;color:var(--a)}
+h1{max-width:860px;font-size:clamp(36px,6vw,64px);line-height:1.1}
+h1 span{color:var(--a)}
+.lead{max-width:640px;font-size:19px;color:var(--mute);margin:0}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:12px 26px;border-radius:10px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.fill{background:var(--a);border-color:var(--a);color:#fff}
+.sw{width:44px;height:44px;border-radius:50%;border:3px solid transparent;padding:0;box-shadow:inset 0 0 0 2px var(--bg)}
+.sw[aria-pressed=true]{border-color:var(--ink)}
+.band{background:var(--bg2);padding:80px 0}
+h2{font-size:38px;margin-bottom:28px}
+.pill{min-height:44px;padding:10px 20px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-weight:600;font-size:15px}
+.pill[aria-pressed=true]{background:var(--a);border-color:var(--a);color:#fff}
+.panel{background:var(--bg);border-radius:16px;padding:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:24px}
+.panel h3{font-size:30px;margin-bottom:12px}
+.panel p{margin:0;color:var(--mute)}
+.panel li{list-style:none;padding:12px 0;border-bottom:1px solid #E4DACB}
+.panel ul{margin:0;padding:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.step b{display:block;font:600 40px Fraunces,Georgia,serif;color:var(--a)}
+.step h3{font:600 18px Inter,sans-serif;margin:6px 0}
+.step p{margin:0;color:var(--mute)}
+.about{background:var(--a);color:#fff;padding:80px 0}
+.about .grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:start}
+.about h2{margin-bottom:16px}
+.about p{margin:0 0 18px}
+.sec{padding:84px 0}
+.samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{display:block;text-decoration:none;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #E4DACB}
+.card i{display:block;height:130px}
+.card div{padding:18px 20px}.card b{display:block;font-size:18px}.card span{color:var(--mute);font-size:15px}
+.sum{background:var(--bg2);border-radius:12px;padding:18px 22px;max-width:720px;margin:22px 0}
+footer{background:var(--ink);color:var(--bg);text-align:center;padding:26px 32px;font-size:14px}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div class="logo">Chayashree</div><a class="call" href="tel:7996320464">Call 7996320464</a></div>
+<main class="hero">
+<div class="eyebrow">Freelance website design and care</div>
+<h1>A website for your <span id="word">shop</span>, built and looked after by one person.</h1>
+<p class="lead">From online shops to wedding invitation sites, I design, build and maintain websites that look right, load fast and are easy for you to run.</p>
+<div class="row"><a class="btn fill" href="#brief">Build your brief</a><a class="btn" href="#samples">See sample sites</a></div>
+<div class="row"><span style="color:var(--mute);font-size:15px">Try a look for your site:</span><span id="sws" class="row"></span></div>
+</main>
+</div>
+
+<section class="band" id="work"><div class="wrap">
+<h2>What I build</h2>
+<div class="row" id="tabs"></div>
+<div class="panel"><div><h3 id="sName"></h3><p id="sBlurb"></p></div><div><b style="color:var(--a)">Usually includes</b><ul id="sItems"></ul></div></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<h2>How it works</h2>
+<div class="grid">
+<div class="step"><b>1</b><h3>We talk</h3><p>You tell me your goals, taste and timeline. I send a clear plan and quote.</p></div>
+<div class="step"><b>2</b><h3>I design and build</h3><p>You see a draft early and give feedback, so the result is what you pictured.</p></div>
+<div class="step"><b>3</b><h3>We launch</h3><p>I handle domain, hosting and go-live, and walk you through how to use it.</p></div>
+<div class="step"><b>4</b><h3>I stay on</h3><p>Ongoing care and changes are available whenever you need them.</p></div>
+</div></div></section>
+
+<section class="about"><div class="wrap grid">
+<div><h2>Hi, I’m Chayashree.</h2><p>I’m a software engineer, an enthusiast and a creative problem solver. I like untangling tricky ideas, so your site is built on solid code, not just a pretty template.</p></div>
+<div><p><strong>A real person, start to finish.</strong> You talk to the one who builds your site, with no hand-offs.</p><p><strong>Works on every screen.</strong> Phones, tablets and desktops, tested before launch.</p><p><strong>Clear pricing.</strong> [YOUR PRICE RANGE], with a written quote before any work begins.</p><p><strong>Built to last.</strong> Simple to update yourself, with support when you want it.</p></div>
+</div></section>
+
+<section class="sec" id="samples"><div class="wrap">
+<h2>Sample sites</h2>
+<div class="samples">
+<a class="card" href="wedding.html"><i style="background:linear-gradient(160deg,#F3DDD3,#E9C9BC)"></i><div><b>Wedding invitation</b><span>RSVP, schedule and venue details</span></div></a>
+<a class="card" href="shop.html"><i style="background:linear-gradient(135deg,#E8B89A,#B4532A)"></i><div><b>Online shop</b><span>Products and a working bag</span></div></a>
+<a class="card" href="cafe.html"><i style="background:linear-gradient(135deg,#2B2118,#6B4A2A)"></i><div><b>Café website</b><span>Menu, hours and location</span></div></a>
+</div></div></section>
+
+<section class="sec" id="brief" style="padding-top:0"><div class="wrap">
+<h2>Let’s build something you’re proud to share.</h2>
+<p class="lead" style="margin-bottom:22px">Tap what you have in mind and I’ll turn it into a message to me.</p>
+<div class="row" id="chips"></div>
+<div class="sum" id="sum" aria-live="polite"></div>
+<div class="row"><a class="btn fill" id="send" href="#">Send my brief</a><a class="btn" href="tel:7996320464">Or call 7996320464</a></div>
+</div></section>
+<footer>© Chayashree · <a href="tel:7996320464">7996320464</a></footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const mk=(tag,txt,cls)=>{const e=document.createElement(tag);e.textContent=txt;if(cls)e.className=cls;return e};
+// rotating word
+const W=['shop','wedding','studio','portfolio','big day'];let wi=0;
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{wi=(wi+1)%W.length;$('word').textContent=W[wi]},2200);
+// look switcher
+[['#0F5C5A','teal'],['#6B2D5C','plum'],['#A94A2F','terracotta'],['#1F3A6E','navy']].forEach(([c,n],i)=>{
+const b=document.createElement('button');b.className='sw';b.style.background=c;b.setAttribute('aria-label','Use '+n+' look');b.setAttribute('aria-pressed',i==0);
+b.onclick=()=>{document.documentElement.style.setProperty('--a',c);[...$('sws').children].forEach(x=>x.setAttribute('aria-pressed',x===b))};$('sws').append(b)});
+// services
+const S=[['Online shops','Product pages, cart and checkout, set up so you can add items and manage orders yourself. I stay on for updates and fixes.',['Product catalogue','Cart and secure checkout','Order and stock management','Ongoing updates']],
+['Wedding invitations','One beautiful link for your guests, designed around your day and your story.',['Your story and schedule','Venue map and travel tips','RSVP form','Photo gallery']],
+['Business sites','Clear, trustworthy sites for services, studios, cafes and clinics.',['Services and pricing pages','Contact form','Online booking if needed','Found easily on search']],
+['Portfolios','Showcase your work or yourself with a clean site that makes a strong first impression.',['Project showcase','About and story','Contact options','Easy to add new work']],
+['Events and landing pages','Launches, birthdays, fundraisers and workshops: one focused page that gets people to act.',['Single focused page','Sign-up or RSVP','Countdown and schedule','Share-friendly link']],
+['Maintenance','Already have a site? I keep it secure, current and running smoothly, so you never have to chase a fix.',['Content and image updates','Security and backups','Speed checks','Quick fixes when needed']]];
+function show(i){[...$('tabs').children].forEach((b,j)=>b.setAttribute('aria-pressed',i==j));$('sName').textContent=S[i][0];$('sBlurb').textContent=S[i][1];$('sItems').replaceChildren(...S[i][2].map(t=>mk('li',t)))}
+S.forEach((s,i)=>{const b=mk('button',s[0],'pill');b.onclick=()=>show(i);$('tabs').append(b)});show(0);
+// brief builder
+const C=['Online shop','Wedding invitation','Business site','Portfolio','Event page','Ongoing maintenance','Online payments','RSVP form','Booking','Photo gallery'];const on=new Set();
+function upd(){const l=C.filter(c=>on.has(c));$('sum').textContent=l.length?'Your brief: '+l.join(', ')+'.':'Pick a few options above to start your brief.';
+$('send').href='sms:7996320464?body='+encodeURIComponent(l.length?'Hi Chayashree, I’m interested in a website with: '+l.join(', ')+'.':'Hi Chayashree, I’d like to talk about a website.')}
+C.forEach(c=>{const b=mk('button',c,'pill');b.setAttribute('aria-pressed','false');b.onclick=()=>{on.has(c)?on.delete(c):on.add(c);b.setAttribute('aria-pressed',on.has(c));upd()};$('chips').append(b)});upd();
+</script>
+</body>
+</html>

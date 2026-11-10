@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample: Wedding Invitation · Chayashree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#F7EFE8;color:#3B2A2A;font:400 17px/1.6 Inter,system-ui,sans-serif}
+h1,h2,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;margin:0}
+button{font:inherit;cursor:pointer}a{color:inherit}
+:focus-visible{outline:3px solid #3B2A2A;outline-offset:3px}
+.bar{background:#3B2A2A;padding:10px 24px;font-size:14px}.bar a{color:#F3DDD3}
+.hero{background:linear-gradient(160deg,#F3DDD3,#F7EFE8 60%);padding:100px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px}
+.small{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:#9A4A40}
+h1{font-size:clamp(54px,10vw,120px);line-height:1}h1 i{color:#9A4A40}
+.rule{width:80px;height:1px;background:#9A4A40}
+.hero p{margin:0}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:13px 34px;border-radius:999px;background:#9A4A40;color:#fff;font-weight:600;text-decoration:none;border:1.5px solid #9A4A40}
+.cards{max-width:1040px;margin:0 auto;padding:90px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.cards div{background:#fff;border-radius:18px;padding:34px;text-align:center}
+.cards b{display:block;font:500 30px 'Cormorant Garamond',Georgia,serif;color:#9A4A40}
+.cards span{color:#6B5A58}
+.day{background:#EBD9CF;padding:80px 24px}
+.day div{max-width:720px;margin:0 auto}
+.day h2{font-size:44px;text-align:center;margin-bottom:18px}
+.day p{display:flex;gap:24px;margin:0;padding:16px 0;border-bottom:1px solid #D8BFB2}
+.day b{width:90px;color:#9A4A40}
+.rsvp{max-width:640px;margin:0 auto;padding:90px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px}
+.rsvp h2{font-size:44px}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.pill{min-height:44px;padding:12px 28px;border-radius:999px;border:1.5px solid #9A4A40;background:transparent;color:#3B2A2A;font-weight:600;font-size:15px}
+.pill[aria-pressed=true]{background:#9A4A40;color:#fff}
+.step{width:44px;height:44px;padding:0;font-size:22px}
+#reply{font:italic 500 26px 'Cormorant Garamond',Georgia,serif;min-height:40px;margin:0}
+footer{background:#3B2A2A;color:#F7EFE8;text-align:center;padding:26px 24px;font-size:14px}footer a{color:#F3DDD3}
+</style>
+</head>
+<body>
+<div class="bar"><a href="index.html">← Back to Chayashree’s websites</a></div>
+<header class="hero">
+<div class="small">Together with their families</div>
+<h1>Anaya <i>&amp;</i> Rohan</h1><div class="rule"></div>
+<p class="serif" style="font-size:28px">invite you to celebrate their wedding</p>
+<p style="letter-spacing:.2em;text-transform:uppercase;font-size:15px">14 February 2027 · Udaipur</p>
+<a class="btn" href="#rsvp">RSVP</a>
+</header>
+<section class="cards">
+<div><b>Ceremony</b>4:00 PM<br><span>Garden terrace, Lakeview Palace</span></div>
+<div><b>Reception</b>7:00 PM<br><span>The Grand Courtyard</span></div>
+<div><b>Dress code</b>Festive formal<br><span>Soft pastels and jewel tones</span></div>
+</section>
+<section class="day"><div><h2>The day</h2>
+<p><b>3:30 PM</b>Guests arrive, welcome drinks</p><p><b>4:00 PM</b>Wedding ceremony</p><p><b>5:30 PM</b>Photographs and garden tea</p><p><b>7:00 PM</b>Reception, dinner and toasts</p><p><b>9:30 PM</b>Music and dancing</p></div></section>
+<section class="rsvp" id="rsvp">
+<h2>Will you join us?</h2>
+<div class="row"><button class="pill" id="yes" aria-pressed="false">Joyfully accept</button><button class="pill" id="no" aria-pressed="false">Regretfully decline</button></div>
+<div class="row" id="gst" hidden><span>Guests</span><button class="pill step" id="less" aria-label="Fewer guests">−</button><b id="n" style="font-size:22px;min-width:24px">1</b><button class="pill step" id="more" aria-label="More guests">+</button></div>
+<p id="reply" aria-live="polite"></p>
+</section>
+<footer>Sample wedding site designed by Chayashree · <a href="tel:7996320464">7996320464</a></footer>
+<script>
+const $=i=>document.getElementById(i);let r='',g=1;
+function u(){$('yes').setAttribute('aria-pressed',r=='yes');$('no').setAttribute('aria-pressed',r=='no');$('gst').hidden=r!='yes';$('n').textContent=g;
+$('reply').textContent=r=='yes'?'We can’t wait to celebrate with '+(g>1?g+' of you!':'you!'):r=='no'?'You will be missed. Thank you for letting us know.':''}
+$('yes').onclick=()=>{r='yes';u()};$('no').onclick=()=>{r='no';u()};
+$('more').onclick=()=>{g=Math.min(8,g+1);u()};$('less').onclick=()=>{g=Math.max(1,g-1);u()};
+</script>
+</body>
+</html>

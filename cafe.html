@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample: Café Website · Chayashree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FFF8EC;color:#2B2118;font:400 17px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0}
+button{font:inherit;cursor:pointer}a{color:inherit}
+:focus-visible{outline:3px solid #F2B84B;outline-offset:3px}
+.bar{background:#1B140D;padding:10px 24px;font-size:14px}.bar a{color:#F2B84B}
+.hero{background:#2B2118;color:#FFF8EC;padding:90px 24px 80px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px}
+.hero small{font-size:14px;letter-spacing:.2em;color:#F2B84B}
+h1{font-size:clamp(44px,8vw,92px);line-height:1.02}
+.hero p{margin:0;max-width:520px;font-size:19px;color:#E8DCC8}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:13px 30px;border-radius:999px;background:#F2B84B;color:#2B2118;font-weight:600;text-decoration:none}
+.menu{max-width:860px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:26px}
+h2{font-size:40px;text-align:center}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pill{min-height:44px;padding:11px 24px;border-radius:999px;border:1.5px solid #2B2118;background:transparent;color:#2B2118;font-weight:600;font-size:15px}
+.pill[aria-pressed=true]{background:#2B2118;color:#FFF8EC}
+.list{background:#fff;border-radius:18px;padding:12px 32px}
+.it{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid #F0E4CF}
+.it:last-child{border:0}.it b{display:block}.it span{font-size:14px;color:#6B5D4E}.it em{font-style:normal;font-weight:600;color:#8A4B14;white-space:nowrap}
+.info{background:#F2B84B;padding:70px 24px}
+.info div{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.info h3{font-size:26px;margin-bottom:6px}
+footer{background:#2B2118;color:#FFF8EC;text-align:center;padding:26px 24px;font-size:14px}footer a{color:#F2B84B}
+</style>
+</head>
+<body>
+<div class="bar"><a href="index.html">← Back to Chayashree’s websites</a></div>
+<header class="hero"><small>Neighbourhood café</small><h1>Maple &amp; Moon</h1><p>Slow coffee, fresh bakes and a corner table with your name on it.</p><a class="btn" href="#menu">See the menu</a></header>
+<section class="menu" id="menu"><h2>Today’s menu</h2><div class="row" id="tabs"></div><div class="list" id="list" aria-live="polite"></div></section>
+<section class="info"><div>
+<section><h3>Hours</h3>Mon to Fri · 7:30 AM to 8 PM<br>Sat and Sun · 8 AM to 9 PM</section>
+<section><h3>Find us</h3>12 Garden Lane, Old Town<br>Walk-ins always welcome</section></div></section>
+<footer>Sample café site designed by Chayashree · <a href="tel:7996320464">7996320464</a></footer>
+<script>
+const M=[['Coffee',[['Flat white','Double shot, silky milk','₹220'],['Maple latte','House maple syrup, oat or whole milk','₹260'],['Cold brew','Steeped 18 hours','₹240'],['Filter coffee','South Indian style','₹150']]],
+['Bakes',[['Butter croissant','Baked every morning','₹180'],['Cardamom bun','Sticky and warm','₹200'],['Banana loaf','With toasted walnuts','₹170'],['Lemon tart','Crisp shell, tangy curd','₹260']]],
+['Brunch',[['Avocado toast','Sourdough, chilli, seeds','₹380'],['Masala omelette','Served with buttered pav','₹320'],['Pesto pasta','Basil, garlic, parmesan','₹420'],['Pancake stack','Maple and berries','₹360']]]];
+const T=document.getElementById('tabs'),L=document.getElementById('list');
+function show(k){[...T.children].forEach((b,j)=>b.setAttribute('aria-pressed',j==k));
+L.innerHTML=M[k][1].map(r=>'<div class="it"><div><b>'+r[0]+'</b><span>'+r[1]+'</span></div><em>'+r[2]+'</em></div>').join('')}
+M.forEach((m,k)=>{const b=document.createElement('button');b.className='pill';b.textContent=m[0];b.onclick=()=>show(k);T.append(b)});show(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sample: Online Shop · Chayashree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#FAF7F2;color:#1F2A24;font:400 17px/1.5 Inter,system-ui,sans-serif}
+h1,h2,.sg{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;margin:0}
+button{font:inherit;cursor:pointer}a{color:inherit}
+:focus-visible{outline:3px solid #1F2A24;outline-offset:3px}
+.bar{background:#1F2A24;padding:10px 24px;font-size:14px}.bar a{color:#E8B89A}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font:700 24px 'Space Grotesk',sans-serif;letter-spacing:-.02em}
+#bag{background:#1F2A24;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600}
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;padding:30px 0 56px}
+.hero>div:first-child{display:flex;flex-direction:column;gap:20px;align-items:flex-start}
+.hero small{font-size:14px;font-weight:600;color:#9A431F}
+h1{font-size:clamp(38px,6vw,68px);line-height:1.04;font-weight:700}
+.hero p{margin:0;font-size:18px;color:#4B5750}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:13px 28px;border-radius:10px;background:#B4532A;color:#fff;font-weight:600;text-decoration:none}
+.ph{height:340px;border-radius:24px;background:linear-gradient(135deg,#E8B89A,#D98E6A 55%,#B4532A);display:flex;align-items:flex-end;padding:28px}
+.ph span{background:rgba(255,255,255,.92);padding:12px 18px;border-radius:12px;font-weight:600}
+h2{font-size:32px;font-weight:600;margin:20px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;padding-bottom:90px}
+.p{background:#fff;border-radius:18px;overflow:hidden}
+.t{height:180px;display:flex;align-items:center;justify-content:center;font:700 64px 'Space Grotesk',sans-serif;color:rgba(31,42,36,.35)}
+.i{padding:20px}.i b{font-size:17px}.i p{margin:4px 0 0;font-size:14px;color:#4B5750}
+.f{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-weight:600}
+.add{min-height:44px;padding:10px 18px;border-radius:999px;border:1.5px solid #1F2A24;background:transparent;color:#1F2A24;font-weight:600;font-size:14px}
+.add.on{background:#1F2A24;color:#fff}
+footer{background:#1F2A24;color:#FAF7F2;text-align:center;padding:26px 24px;font-size:14px}footer a{color:#E8B89A}
+</style>
+</head>
+<body>
+<div class="bar"><a href="index.html">← Back to Chayashree’s websites</a></div>
+<div class="wrap">
+<div class="nav"><div class="logo">Clay &amp; Cotton</div><div id="bag" aria-live="polite">Bag is empty</div></div>
+<section class="hero"><div><small>New season</small><h1>Handmade pieces for slower mornings.</h1><p>Small-batch ceramics and linen, made to be used every day.</p><a class="btn" href="#products">Shop the collection</a></div><div class="ph"><span>Free delivery over ₹1,500</span></div></section>
+<h2 id="products">Everyday favourites</h2>
+<div class="grid" id="grid"></div>
+</div>
+<footer>Sample shop designed by Chayashree · <a href="tel:7996320464">7996320464</a></footer>
+<script>
+const P=[['Stoneware mug','Speckled glaze, 300 ml',850,'#EAD7C3'],['Linen napkins','Set of four, stone washed',1200,'#DCE3D6'],['Serving bowl','Wheel thrown, food safe',1450,'#F1D9CF'],['Soy candle','Cedar and fig, 40 hour burn',900,'#E4DDEE'],['Woven basket','Natural seagrass',1800,'#F0E4C4'],['Tea towel set','Two cotton towels',700,'#D6E4E8']];
+const q=P.map(()=>0),f=n=>'₹'+n.toLocaleString('en-IN'),btns=[];
+function u(){let c=0,t=0;P.forEach((p,i)=>{c+=q[i];t+=q[i]*p[2];btns[i].textContent=q[i]?'Added '+q[i]+' · add more':'Add to bag';btns[i].classList.toggle('on',q[i]>0)});
+document.getElementById('bag').textContent=c?'Bag '+c+' · '+f(t):'Bag is empty'}
+P.forEach((p,i)=>{const d=document.createElement('div');d.className='p';
+d.innerHTML='<div class="t" style="background:'+p[3]+'">'+p[0][0]+'</div><div class="i"><b>'+p[0]+'</b><p>'+p[1]+'</p><div class="f"><span>'+f(p[2])+'</span><button class="add">Add to bag</button></div></div>';
+const b=d.querySelector('button');btns.push(b);b.onclick=()=>{q[i]++;u()};document.getElementById('grid').append(d)});
+</script>
+</body>
+</html>
